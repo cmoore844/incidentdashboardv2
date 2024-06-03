@@ -114,7 +114,7 @@ const NotificationList = () => {
         </ListItem>
         <Grid container direction="column" className="list-container">
           <Grid item xs={12} sx={{ pb: 2 }}>
-            <Typography variant="subtitle2">It is a long established fact that a reader will be distracted</Typography>
+            <Typography variant="subtitle2">NEW - INC0000045 Medium Impact </Typography>
           </Grid>
           <Grid item xs={12}>
             <Grid container>
@@ -143,12 +143,12 @@ const NotificationList = () => {
               <IconBuildingStore stroke={1.5} size="1.3rem" />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={<Typography variant="subtitle1">Store Verification Done</Typography>} />
+          <ListItemText primary={<Typography variant="subtitle1">Verification Done</Typography>} />
           <ListItemSecondaryAction>
             <Grid container justifyContent="flex-end">
               <Grid item xs={12}>
                 <Typography variant="caption" display="block" gutterBottom>
-                  2 min ago
+                  5 min ago
                 </Typography>
               </Grid>
             </Grid>
@@ -187,7 +187,7 @@ const NotificationList = () => {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Typography variant="caption" display="block" gutterBottom>
-                  2 min ago
+                  8 min ago
                 </Typography>
               </Grid>
             </Grid>
@@ -195,7 +195,7 @@ const NotificationList = () => {
         </ListItem>
         <Grid container direction="column" className="list-container">
           <Grid item xs={12} sx={{ pb: 2 }}>
-            <Typography variant="subtitle2">All done! Now check your inbox as you&apos;re in for a sweet treat!</Typography>
+            <Typography variant="subtitle2">A service request has been assigned to you.</Typography>
           </Grid>
           <Grid item xs={12}>
             <Grid container>
@@ -219,7 +219,7 @@ const NotificationList = () => {
             <Grid container justifyContent="flex-end">
               <Grid item xs={12}>
                 <Typography variant="caption" display="block" gutterBottom>
-                  2 min ago
+                  20 min ago
                 </Typography>
               </Grid>
             </Grid>
@@ -277,15 +277,9 @@ const NotificationList = () => {
         </ListItem>
         <Grid container direction="column" className="list-container">
           <Grid item xs={12} sx={{ pb: 2 }}>
-            <Typography variant="subtitle2">It is a long established fact that a reader will be distracted</Typography>
+            <Typography variant="subtitle2">You have successfully closed service request - INC0000321</Typography>
           </Grid>
-          <Grid item xs={12}>
-            <Grid container>
-              <Grid item>
-                <Chip label="Confirmation of Account." sx={chipSuccessSX} />
-              </Grid>
-            </Grid>
-          </Grid>
+          
         </Grid>
       </ListItemWrapper>
     </List>

@@ -1,4 +1,7 @@
+import records from '../../../api/data/incident_event_logs_truncated100.json';
 // ==============================|| DASHBOARD - BAJAJ AREA CHART ||============================== //
+
+
 
 const chartData = {
   type: 'area',

@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonEarningCard from 'ui-component/cards/Skeleton/EarningCard';
+import records from '../../api/data/incident_event_logs_truncated100.json';
 
 // assets
 import EarningIcon from 'assets/images/icons/earning.svg';
@@ -37,6 +38,9 @@ const EarningCard = ({ isLoading }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const rows = records
+  const ticketCount = Object.keys(rows).length;
 
   return (
     <>
@@ -79,7 +83,7 @@ const EarningCard = ({ isLoading }) => {
               <Grid item>
                 <Grid container alignItems="center">
                   <Grid item>
-                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 200, mr: 1, mt: 1.75, mb: 0.75 }}>100</Typography>
+                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 200, mr: 1, mt: 1.75, mb: 0.75 }}>{ticketCount}</Typography>
                   </Grid>
                 </Grid>
               </Grid>
@@ -91,7 +95,7 @@ const EarningCard = ({ isLoading }) => {
                     color: 'secondary.200'
                   }}
                 >
-                Average Tickets Per Month
+                Unique Events Logged
                 </Typography>
               </Grid>
             </Grid>
