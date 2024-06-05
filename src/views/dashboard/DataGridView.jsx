@@ -11,16 +11,20 @@ import Typography from '@mui/material/Typography';
 // third-party
 import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
+import {v4 as uuidv4} from 'uuid';
 
 // project imports
 import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 import { SpinnerCircular } from 'spinners-react';
 import MainCard from 'ui-component/cards/MainCard';
 import { gridSpacing } from 'store/constant';
+import incident_records from '../../api/data/incident_event_log_truncated_truncated05.json'
+
 
 // chart data
 import chartData from './chart-data/total-growth-bar-chart';
 import DataTable from './chart-data/DataTable';
+import TableComponent from './chart-data/TableComponent';
 
 const status = [
   {
@@ -92,13 +96,15 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                 <Grid item>
                   <Grid container direction="column" spacing={1}>
                     <Grid item>
-                      <Typography variant="h3">Data Grid</Typography>
+                      <Typography variant="h3">Incident Event Logs</Typography>
                     </Grid>
                     <Grid item>
-                      <Typography variant="subtitle2">Breakdown</Typography>
+                      <Typography variant="subtitle2">Sample</Typography>
                     </Grid>
                     <Grid item>
                       <DataTable /> 
+                      {/* <TableComponent data={incident_records}/> */}
+
                     </Grid>
                   </Grid>
                 </Grid>

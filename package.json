@@ -9,7 +9,8 @@
   },
   "homepage": "https://berrydashboard.io/free",
   "scripts": {
-    "start": "env-cmd -f .env vite",
+    "start": "env-cmd -f .env vite --host",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",

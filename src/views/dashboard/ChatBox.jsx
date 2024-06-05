@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import { TextField } from '@mui/material';
+import { TextField, Box, CircularProgress } from '@mui/material';
 
 // project imports
 import BajajAreaChartCard from './BajajAreaChartCard';
@@ -25,9 +25,10 @@ import EarningCard from './IncidentCountsCard';
 
 // assets
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import { set } from 'immutable';
 import TotalIncomeLightCard from './TotalIncomeLightCard';
 import TotalIncomeDarkCard from './BlurbDarkCard';
+import TotalOrderLineChartCard from './TotalOrderLineChartCard';
+import { useEffect } from 'react';
 
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 // ==============================|| CHAT BOX COMPONENT ||============================== //
@@ -42,22 +43,40 @@ const PopularCard = ({ isLoading }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+//-------------------------------------------//
   //useState hook to capture the state of what is typed into the text box 
   const [request, setRequest] = useState('');
 
   //handler function to send the data to API 
   const handleSubmit = async () => {
-    // try{
-    //   const messageSend = await axios.post("ENDPONT", request);
-    //   console.log("AXIOS RES!", messageSend.data);
+    try{
+      const messageSend = await axios.post("ENDPONT", request);
+      console.log("AXIOS RES!", messageSend.data);
 
-    // }catch{
-    //   AbortSignal.timeout();
-    //   console.log(err.message);
-    // }
+    }catch{
+      AbortSignal.timeout();
+      console.log(err.message);
+    }
     console.log("Msg sent!", request)
   }
+
+  //useEffect used to set conditional loading state for API response
+  const [isPending, setisPending] = useState(true);
+
+  //state to capture the response from the API
+  const [data, setData] = useState();
+
+  //retrieve data from the API will have to be a useEffect with dependency on handleSubmit
+  const fetchData = async () => {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    setData(response.data);
+    setisPending(false);
+    console.log("GET", data);
+    }
+    useEffect(() => {
+      fetchData();
+      
+    }, [])
 
   return (
     <>
@@ -107,6 +126,7 @@ const PopularCard = ({ isLoading }) => {
                   </Grid>
                 </Grid>
               </Grid>
+              {/*-----CHAT MESSAGE PROMPT WITH BUTTON----*/}
               <Grid item xs={12} sx={{ pt: '16px !important' }}>
                 <TextField 
                   fullWidth 
@@ -125,9 +145,21 @@ const PopularCard = ({ isLoading }) => {
               Ask
             </Button>
           </CardActions>
+          {/*-----CHAT RESPONSE AREA FROM API----*/}
           <Grid item xs={12} sx={{ pt: '16px !important' }}>
-            <BajajAreaChartCard />
+            {/* <BajajAreaChartCard /> */}
+            <TextField 
+                  fullWidth 
+                  multiline 
+                  type="text"
+                  rows={6} 
+                  variant="standard"
+                  placeholder='response will pop here...'
+                  
+               
+                  />
           </Grid>
+          {/*-------------------------------------*/}
           <Grid item xs={12} sx={{ pt: '16px !important' }}>
             <EarningCard />
           </Grid>
