@@ -9,7 +9,7 @@ import jsconfigPaths from 'vite-jsconfig-paths';
 export default defineConfig({
   plugins: [react(), jsconfigPaths()],
   // https://github.com/jpuri/react-draft-wysiwyg/issues/1317
-  base: '/free',
+  base: '',
   define: {
     global: 'window'
   },
@@ -27,7 +27,7 @@ export default defineConfig({
   },
   server: {
     // this ensures that the browser opens upon server start
-    open: false,
+    open: true,
     // this sets a default port to 3000
     port: 8080,
 

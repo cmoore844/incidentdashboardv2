@@ -33,7 +33,6 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 const store = configureStore({ reducer });
 
 // ==============================|| REACT DOM RENDER  ||============================== //
-
 //===============================|| ROOT FILE/ENTRYPOINT ||============================ //
 
 root.render(

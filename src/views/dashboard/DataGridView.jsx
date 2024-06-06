@@ -4,86 +4,23 @@ import React from 'react';
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import MenuItem from '@mui/material/MenuItem';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 // third-party
-import ApexCharts from 'apexcharts';
-import Chart from 'react-apexcharts';
-import {v4 as uuidv4} from 'uuid';
 
 // project imports
 import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
-import { SpinnerCircular } from 'spinners-react';
 import MainCard from 'ui-component/cards/MainCard';
 import { gridSpacing } from 'store/constant';
-import incident_records from '../../api/data/incident_event_log_truncated_truncated05.json'
-
 
 // chart data
-import chartData from './chart-data/total-growth-bar-chart';
 import DataTable from './chart-data/DataTable';
-import TableComponent from './chart-data/TableComponent';
 
-const status = [
-  {
-    value: 'today',
-    label: 'Today'
-  },
-  {
-    value: 'month',
-    label: 'This Month'
-  },
-  {
-    value: 'year',
-    label: 'This Year'
-  }
-];
 
-// ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
+// ==============================|| INCIDENT DATA TABLE ||============================== //
 
 const TotalGrowthBarChart = ({ isLoading }) => {
-  const theme = useTheme();
-
-  const { primary } = theme.palette.text;
-  const divider = theme.palette.divider;
-  const grey500 = theme.palette.grey[500];
-
-  const primary200 = theme.palette.primary[200];
-  const primaryDark = theme.palette.primary.dark;
-  const secondaryMain = theme.palette.secondary.main;
-  const secondaryLight = theme.palette.secondary.light;
-
-  React.useEffect(() => {
-    const newChartData = {
-      ...chartData.options,
-      colors: [primary200, primaryDark, secondaryMain, secondaryLight],
-      xaxis: {
-        labels: {
-          style: {
-            colors: [primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary]
-          }
-        }
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: [primary]
-          }
-        }
-      },
-      grid: { borderColor: divider },
-      tooltip: { theme: 'light' },
-      legend: { labels: { colors: grey500 } }
-    };
-
-    // do not load chart when loading
-    if (!isLoading) {
-      ApexCharts.exec(`bar-chart`, 'updateOptions', newChartData);
-    }
-  }, [primary200, primaryDark, secondaryMain, secondaryLight, primary, divider, isLoading, grey500]);
-
+  //Incident Data Table JSX Layout 
   return (
     <>
       {isLoading ? (
@@ -103,14 +40,11 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                     </Grid>
                     <Grid item>
                       <DataTable /> 
-                      {/* <TableComponent data={incident_records}/> */}
-
                     </Grid>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            
           </Grid>
         </MainCard>
       )}
