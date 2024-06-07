@@ -78,7 +78,7 @@ const PopularCard = ({ isLoading }) => {
                   </Grid>
                 </Grid>
               </Grid>
-              {/*-----IFRAME FOR STREAMLIT APPLICATION----*/}
+              {/*-----IFRAME FOR STREAMLIT APPLICATION HERE----*/}
               <Grid item xs={12} sx={{ pt: '16px !important' }}>
                   <iframe 
                     src="https://30days.streamlit.app?embed=true"
